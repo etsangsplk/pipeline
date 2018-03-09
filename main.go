@@ -123,6 +123,9 @@ func main() {
 		v1.PUT("/cluster/profiles", api.UpdateClusterProfile)
 		v1.DELETE("/cluster/profiles/:type/:name", api.DeleteClusterProfile)
 		v1.GET("/token", auth.GenerateToken)
+		v1.GET("/org/:id/secrets", api.ListSecrets)
+		v1.POST("/org/:id/secrets", api.AddSecrets)
+		v1.DELETE("/org/:id/secrets/:secretId", api.DeleteSecrets)
 	}
 
 	router.GET("/api", api.MetaHandler(router, "/api"))
