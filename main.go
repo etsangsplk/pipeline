@@ -132,6 +132,9 @@ func main() {
 		v1.GET("/orgs", api.GetOrganizations)
 		v1.GET("/orgs/:orgid", api.GetOrganizations)
 		v1.POST("/orgs", api.CreateOrganization)
+		v1.GET("/orgs/:orgid/secrets", api.ListSecrets)
+		v1.POST("/orgs/:orgid/secrets", api.AddSecrets)
+		v1.DELETE("/orgs/:orgid/secrets/:secretId", api.DeleteSecrets)
 	}
 
 	router.GET("/api", api.MetaHandler(router, "/api"))
